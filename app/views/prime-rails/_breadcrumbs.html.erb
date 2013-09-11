@@ -1,0 +1,10 @@
+<% if @breadcrumbs.present? %>
+  <ul id="prime_bc">
+    <% @breadcrumbs.each do |crumb| %>
+      <li>
+        <%= link_to crumb[:name], crumb[:url], crumb[:options] %>        
+      </li>
+    <% end %>
+  </ul>
+  <script id="prime_bc_s" type="text/javascript">$(function(){PrimeFaces.cw('Breadcrumb','widget_prime_bc',{id:'prime_bc'});});</script>
+<% end %>

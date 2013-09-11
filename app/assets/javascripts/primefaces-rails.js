@@ -78,3 +78,25 @@ PrimeFaces.widget.Fieldset = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puifieldset(cfg);
     }
 });
+
+/**
+ * PrimeFaces Breadcrumb Widget
+ */
+PrimeFaces.widget.Breadcrumb = PrimeFaces.widget.BaseWidget.extend({
+    
+    init: function(cfg) {
+        this._super(cfg);           
+        this.jq.puibreadcrumb(cfg);
+    }
+});
+
+/**
+ * PrimeFaces Panel Widget
+ */
+PrimeFaces.widget.Panel = PrimeFaces.widget.BaseWidget.extend({
+    
+    init: function(cfg) {
+        this._super(cfg);           
+        this.jq.puipanel(cfg);
+    }
+});

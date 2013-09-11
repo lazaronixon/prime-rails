@@ -20,7 +20,7 @@ module DialogHelper
 	def dialog_encode_script(id,options={})
 	    options = options.stringify_keys
         clientid = sanitize_to_id(id)
-        widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientId		
+        widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid		
         options_ui = options
         options_ui = options_ui.merge(:id => clientid)                         
         options_ui = options_ui.to_json        
