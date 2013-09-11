@@ -5,8 +5,15 @@ module ActionView::Helpers::FormTagHelper
         widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid
         output = tag :input, { "type" => "text", "name" => name, "id" => sanitize_to_id(name), "value" => value }.update(options.stringify_keys)
 
+        widgetclass = "InputText"
+        widgetclass = "Password" if options['type'] == 'password'
+        
+        options_ui = options
+        options_ui = options_ui.merge(:id => clientid )                         
+        options_ui = options_ui.to_json            
+        
         script = '$(function() {'
-        script += "PrimeFaces.cw('InputText','#{widgetvar}',{id: '#{clientid}' })"
+        script += "PrimeFaces.cw('#{widgetclass}','#{widgetvar}',#{options_ui})"
         script += '});'         
         output += javascript_tag(script, "id" => clientid+"_s")
                        
@@ -96,6 +103,10 @@ module ActionView::Helpers::FormTagHelper
         script += '});'         
         output += javascript_tag(script, "id" => clientid+"_s")         
         
+      end   
+      
+      def p_password_field_tag(name = "password", value = nil, options = {})
+        p_text_field_tag(name, value, options.update("type" => "password"))
       end      
       
 end

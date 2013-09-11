@@ -100,3 +100,14 @@ PrimeFaces.widget.Panel = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puipanel(cfg);
     }
 });
+
+/**
+ * PrimeFaces Panel Widget
+ */
+PrimeFaces.widget.Password = PrimeFaces.widget.BaseWidget.extend({
+    
+    init: function(cfg) {
+        this._super(cfg);           
+        this.jq.puipassword(cfg);
+    }
+});

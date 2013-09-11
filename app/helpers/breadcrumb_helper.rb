@@ -16,7 +16,7 @@ module BreadcrumbHelper
   
 	def p_breadcrumb_menu(id,options={})
     options = options.stringify_keys       
-    output = content_tag(:li, options) do
+    content_tag(:li, options) do
       content_tag(:a, options['value'], href: options['url'])
     end            		                        
 	end	   
