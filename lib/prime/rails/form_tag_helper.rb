@@ -1,21 +1,21 @@
 module ActionView::Helpers::FormTagHelper
       def p_text_field_tag(name, value = nil, options = {})
         options = options.stringify_keys
-        clientId = sanitize_to_id(name)
-        widgetVar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientId
+        clientid = sanitize_to_id(name)
+        widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid
         output = tag :input, { "type" => "text", "name" => name, "id" => sanitize_to_id(name), "value" => value }.update(options.stringify_keys)
 
         script = '$(function() {'
-        script += "PrimeFaces.cw('InputText','#{widgetVar}',{id: '#{clientId}' })"
+        script += "PrimeFaces.cw('InputText','#{widgetvar}',{id: '#{clientid}' })"
         script += '});'         
-        output += javascript_tag(script, "id" => clientId+"_s")
+        output += javascript_tag(script, "id" => clientid+"_s")
                        
       end                         
       
       def p_text_area_tag(name, content = nil, options = {})        
         options = options.stringify_keys
-        clientId = sanitize_to_id(name)
-        widgetVar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientId        
+        clientid = sanitize_to_id(name)
+        widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid        
 
         if size = options.delete("size")
           options["cols"], options["rows"] = size.split("x") if size.respond_to?(:split)
@@ -27,13 +27,13 @@ module ActionView::Helpers::FormTagHelper
         output = content_tag :textarea, content.to_s.html_safe, { "name" => name, "id" => sanitize_to_id(name) }.update(options)                
         
         options_ui = options
-        options_ui = options_ui.merge(:id => clientId )                         
+        options_ui = options_ui.merge(:id => clientid )                         
         options_ui = options_ui.to_json        
         
         script = '$(function() {'
-        script += "PrimeFaces.cw('InputTextarea','#{widgetVar}',#{options_ui})"
+        script += "PrimeFaces.cw('InputTextarea','#{widgetvar}',#{options_ui})"
         script += '});'         
-        output += javascript_tag(script, "id" => clientId+"_s")        
+        output += javascript_tag(script, "id" => clientid+"_s")        
       end      
       
       def p_button_tag(content_or_options = nil, options = nil, &block)       
@@ -66,17 +66,17 @@ module ActionView::Helpers::FormTagHelper
             
         output = content_tag :button, content_or_options || 'Button', options, &block
         
-        clientId = sanitize_to_id(options["id"])
-        widgetVar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientId         
+        clientid = sanitize_to_id(options["id"])
+        widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid         
         
         options_ui = options
-        options_ui = options_ui.merge(:id => clientId )                         
+        options_ui = options_ui.merge(:id => clientid )                         
         options_ui = options_ui.to_json        
         
         script = '$(function() {'
-        script += "PrimeFaces.cw('Button','#{widgetVar}',#{options_ui})"
+        script += "PrimeFaces.cw('Button','#{widgetvar}',#{options_ui})"
         script += '});'         
-        output += javascript_tag(script, "id" => clientId+"_s")                                             
+        output += javascript_tag(script, "id" => clientid+"_s")                                             
       end                
       
       def p_check_box_tag(name, value = "1", checked = false, options = {})
@@ -84,17 +84,17 @@ module ActionView::Helpers::FormTagHelper
         html_options["checked"] = "checked" if checked
         output = tag :input, html_options
         
-        clientId = sanitize_to_id(name)
-        widgetVar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientId         
+        clientid = sanitize_to_id(name)
+        widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid         
         
         options_ui = options
-        options_ui = options_ui.merge(:id => clientId )                         
+        options_ui = options_ui.merge(:id => clientid )                         
         options_ui = options_ui.to_json        
         
         script = '$(function() {'
-        script += "PrimeFaces.cw('CheckBox','#{widgetVar}',#{options_ui})"
+        script += "PrimeFaces.cw('CheckBox','#{widgetvar}',#{options_ui})"
         script += '});'         
-        output += javascript_tag(script, "id" => clientId+"_s")         
+        output += javascript_tag(script, "id" => clientid+"_s")         
         
       end      
       

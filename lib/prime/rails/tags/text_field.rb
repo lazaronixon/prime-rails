@@ -12,12 +12,12 @@ module ActionView
           add_default_name_and_id(options)
           output = tag("input", options)
           
-          clientId = sanitize_to_id(options["id"])
-          widgetVar = options["var"] ? options["var"] : "widget_"+clientId    
+          clientid = sanitize_to_id(options["id"])
+          widgetvar = options["var"] ? options["var"] : "widget_"+clientid    
           script = '$(function() {'
-          script += "PrimeFaces.cw('InputText','#{widgetVar}',{id: '#{clientId}' })"
+          script += "PrimeFaces.cw('InputText','#{widgetvar}',{id: '#{clientid}' })"
           script += '});'         
-          output += javascript_tag(script, "id" => clientId+"_s")              
+          output += javascript_tag(script, "id" => clientid+"_s")              
           
         end
       end

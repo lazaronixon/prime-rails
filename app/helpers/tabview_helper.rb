@@ -1,25 +1,25 @@
 module TabviewHelper
     
 	def p_tabview(id,options={})    
-        output = tabview_encodeMarkup(id,options)  
-        output += tabview_encodeScript(id,options)              		                        
+        output = tabview_encode_markup(id,options)  
+        output += tabview_encode_script(id,options)              		                        
 	end
 	
 	def p_tab(id,options={},&block)
 		options = options.stringify_keys
-		forId = sanitize_to_id(options["for"])
-        clientId = forId+":"+sanitize_to_id(id)		
-		content_for(("tab_header_" + forId)) do
+		forid = sanitize_to_id(options["for"])
+        clientid = forid+":"+sanitize_to_id(id)		
+		content_for(("tab_header_" + forid)) do
 			content_tag(:li, nil) do
 				title = options["title"]
-				output = content_tag(:a, title, href: clientId)
+				output = content_tag(:a, title, href: clientid)
 				output += content_tag(:span, nil, class: "ui-icon ui-icon-close") if options["closable"]				    	
 				output
 			end	
 		end		
 		
-		content_for(("tab_content_" + forId)) do
-			content_tag(:div, nil, id: clientId) do
+		content_for(("tab_content_" + forid)) do
+			content_tag(:div, nil, id: clientid) do
 				capture(&block)	    	
 			end	
 		end		    	    
@@ -27,28 +27,28 @@ module TabviewHelper
 	
 	private
 	
-	def tabview_encodeMarkup(id,options={})
-        clientId = sanitize_to_id(id)	
-        output = content_tag(:div, nil,id: clientId) do
+	def tabview_encode_markup(id,options={})
+        clientid = sanitize_to_id(id)	
+        output = content_tag(:div, nil,id: clientid) do
         			content_tag(:ul, nil) do
-        				content_for("tab_header_"+clientId)
+        				content_for("tab_header_"+clientid)
         			end +
-        			content_tag(:div, content_for("tab_content_"+clientId))
+        			content_tag(:div, content_for("tab_content_"+clientid))
         		 end        		 
         output.html_safe			
 	end
 	
-	def tabview_encodeScript(id,options={})
-        clientId = sanitize_to_id(id)
-        widgetVar = options["var"] ? options["var"] : "widget_"+clientId		
+	def tabview_encode_script(id,options={})
+        clientid = sanitize_to_id(id)
+        widgetvar = options["widgetVar"] ? options["widgetVar"] : "widget_"+clientid		
         options_ui = options
-        options_ui = options_ui.merge(:id => clientId )                         
+        options_ui = options_ui.merge(:id => clientid )                         
         options_ui = options_ui.to_json        
         
         script = '$(function() {'
-        script += "PrimeFaces.cw('TabView','#{widgetVar}',#{options_ui})"
+        script += "PrimeFaces.cw('TabView','#{widgetvar}',#{options_ui})"
         script += '});'         
-        javascript_tag(script, "id" => clientId+"_s")        		
+        javascript_tag(script, "id" => clientid+"_s")        		
 	end
 	
 end

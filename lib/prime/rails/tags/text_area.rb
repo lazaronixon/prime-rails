@@ -13,17 +13,17 @@ module ActionView
 
           output = content_tag("textarea", options.delete('value') || value_before_type_cast(object), options)
           
-          clientId = sanitize_to_id(options["id"])
-          widgetVar = options["var"] ? options["var"] : "widget_"+clientId  
+          clientid = sanitize_to_id(options["id"])
+          widgetvar = options["var"] ? options["var"] : "widget_"+clientid  
           
           options_ui = options
-          options_ui = options_ui.merge(:id => clientId )                         
+          options_ui = options_ui.merge(:id => clientid )                         
           options_ui = options_ui.to_json              
           
           script = '$(function() {'
-          script += "PrimeFaces.cw('InputTextarea','#{widgetVar}',#{options_ui})"
+          script += "PrimeFaces.cw('InputTextarea','#{widgetvar}',#{options_ui})"
           script += '});'         
-          output += javascript_tag(script, "id" => clientId+"_s")               
+          output += javascript_tag(script, "id" => clientid+"_s")               
           
         end
       end
