@@ -1,0 +1,1 @@
+require 'prime/rails/primerails' if defined?(Rails)
