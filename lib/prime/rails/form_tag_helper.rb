@@ -107,6 +107,33 @@ module ActionView::Helpers::FormTagHelper
       
       def p_password_field_tag(name = "password", value = nil, options = {})
         p_text_field_tag(name, value, options.update("type" => "password"))
+      end    
+      
+      def p_select_tag(name, option_tags = nil, options = {})
+        option_tags ||= ""
+        html_name = (options[:multiple] == true && !name.to_s.ends_with?("[]")) ? "#{name}[]" : name
+
+        if options.delete(:include_blank)
+          option_tags = content_tag(:option, '', :value => '').safe_concat(option_tags)
+        end
+
+        if prompt = options.delete(:prompt)
+          option_tags = content_tag(:option, prompt, :value => '').safe_concat(option_tags)
+        end
+
+        output = content_tag :select, option_tags, { "name" => html_name, "id" => sanitize_to_id(name) }.update(options.stringify_keys)
+        
+        clientid = sanitize_to_id(name)
+        widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid         
+        
+        options_ui = options
+        options_ui = options_ui.merge(:id => clientid )                         
+        options_ui = options_ui.to_json        
+        
+        script = '$(function() {'
+        script += "PrimeFaces.cw('Dropdown','#{widgetvar}',#{options_ui})"
+        script += '});'         
+        output += javascript_tag(script, "id" => clientid+"_s")         
       end      
       
 end

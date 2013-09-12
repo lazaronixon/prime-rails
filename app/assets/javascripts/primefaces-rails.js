@@ -1,3 +1,11 @@
+String.prototype.format = function (args) {
+    var newStr = this;
+    for (var key in args) {
+        newStr = newStr.replace(new RegExp('{' + key + '}', "g"), args[key]);
+    }
+    return newStr;
+}
+
 /**
  * PrimeFaces InputText Widget
  */
@@ -126,5 +134,19 @@ PrimeFaces.widget.Tooltip = PrimeFaces.widget.BaseWidget.extend({
             forId = PrimeFaces.escapeClientId(cfg.for);
             $(forId).puitooltip(cfg);
         }
+    }
+});
+
+/**
+ * PrimeFaces Progressbar Widget
+ */
+PrimeFaces.widget.Dropdown = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        if (cfg.content) {
+            contentFunc = cfg.content;
+            cfg.content = function(opt) { return contentFunc.format({ option: opt });};            
+        }
+        this.jq.puidropdown(cfg);                
     }
 });
