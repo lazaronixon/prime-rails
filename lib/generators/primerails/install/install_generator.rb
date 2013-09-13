@@ -13,10 +13,7 @@ module Primerails
 
         if File.exist?(js_manifest)
           
-          js_require_block = "//= require jquery-ui\n" 
-          js_require_block += "//= require prime-ui\n" 
-          js_require_block += "//= require primefaces-core\n"
-          js_require_block += "//= require primefaces-rails\n"
+          js_require_block = "//= require prime-ui\n" 
           insert_into_file js_manifest, js_require_block, :after => "jquery_ujs\n"        
         else
           copy_file "application.js", js_manifest
@@ -29,8 +26,7 @@ module Primerails
           content = File.read(css_manifest)
           if content.match(/require_tree\s+\.\s*$/)
             # Good enough - that'll include our primerails_and_overrides.css.less
-          else            
-            style_require_block = "*= require jquery-ui\n"
+          else
             style_require_block += "*= require prime-ui\n"            
             insert_into_file css_manifest, style_require_block, :after => "require_self\n"
           end
@@ -38,10 +34,6 @@ module Primerails
           copy_file "application.css", "app/assets/stylesheets/application.css"
         end
 
-      end
-
-      def add_primerails        
-        copy_file "primerails_and_overrides.css", "app/assets/stylesheets/primerails_and_overrides.css"
       end
 
       def cleanup_legacy
