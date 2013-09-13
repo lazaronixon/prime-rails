@@ -101,7 +101,7 @@ PrimeFaces.widget.Panel = PrimeFaces.widget.BaseWidget.extend({
 });
 
 /**
- * PrimeFaces Panel Widget
+ * PrimeFaces Password Widget
  */
 PrimeFaces.widget.Password = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
@@ -138,7 +138,7 @@ PrimeFaces.widget.Tooltip = PrimeFaces.widget.BaseWidget.extend({
 });
 
 /**
- * PrimeFaces Progressbar Widget
+ * PrimeFaces Dropdown Widget
  */
 PrimeFaces.widget.Dropdown = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
@@ -148,5 +148,16 @@ PrimeFaces.widget.Dropdown = PrimeFaces.widget.BaseWidget.extend({
             cfg.content = function(opt) { return contentFunc.format({ option: opt });};            
         }
         this.jq.puidropdown(cfg);                
+    }
+});
+
+
+/**
+ * PrimeFaces Accordion Widget
+ */
+PrimeFaces.widget.Accordion = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        this.jq.puiaccordion(cfg);
     }
 });
