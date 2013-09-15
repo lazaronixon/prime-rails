@@ -3,7 +3,7 @@ module ActionView
     module Tags # :nodoc:
       class CheckBox < Base #:nodoc:
         include Helpers::JavaScriptHelper  
-        def render
+        def p_render
           options = @options.stringify_keys
           options["type"]     = "checkbox"
           options["value"]    = @checked_value

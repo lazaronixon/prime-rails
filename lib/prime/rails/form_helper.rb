@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/tags/text_field.rb'
 require File.dirname(__FILE__) + '/tags/text_area.rb'
 require File.dirname(__FILE__) + '/tags/check_box.rb'
+require File.dirname(__FILE__) + '/tags/select.rb'
 
 module ActionView::Helpers    
   
@@ -15,8 +16,12 @@ module ActionView::Helpers
     end 
           
     def p_check_box(object_name, method, options = {}, checked_value = "1", unchecked_value = "0")
-      Tags::CheckBox.new(object_name, method, self, checked_value, unchecked_value, options).render
+      Tags::CheckBox.new(object_name, method, self, checked_value, unchecked_value, options).p_render
     end 
+    
+    def p_select(object, method, choices, options = {}, html_options = {})
+      Tags::Select.new(object, method, self, choices, options, html_options).p_render
+    end    
                 		
     def p_button(value = nil, options = {}, &block)
       value, options = nil, value if value.is_a?(Hash)
@@ -49,8 +54,12 @@ module ActionView::Helpers
     end   
       
     def p_check_box(method, options = {}, checked_value = "1", unchecked_value = "0")
-      @template.check_box(@object_name, method, objectify_options(options), checked_value, unchecked_value)
+      @template.p_check_box(@object_name, method, objectify_options(options), checked_value, unchecked_value)
     end      
+    
+    def p_select(method, choices, options = {}, html_options = {})
+      @template.p_select(@object_name, method, choices, objectify_options(options), @default_options.merge(html_options))
+    end    
     
   end
 end
