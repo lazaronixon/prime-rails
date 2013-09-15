@@ -147,7 +147,11 @@ PrimeFaces.widget.Dropdown = PrimeFaces.widget.BaseWidget.extend({
             contentFunc = cfg.content;
             cfg.content = function(opt) { return contentFunc.format({ option: opt });};            
         }
-        this.jq.puidropdown(cfg);                
+        if (cfg.listbox) {
+            this.jq.puilistbox(cfg);
+        } else {
+            this.jq.puidropdown(cfg);
+        }
     }
 });
 
@@ -159,5 +163,16 @@ PrimeFaces.widget.Accordion = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
         this.jq.puiaccordion(cfg);
+    }
+});
+
+
+/**
+ * PrimeFaces Accordion Widget
+ */
+PrimeFaces.widget.RadioButton = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);        
+        this.jq.find(':radio').puiradiobutton(cfg);
     }
 });

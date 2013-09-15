@@ -4,9 +4,6 @@ require File.dirname(__FILE__) + '/prime-rails-breadcrumbs.rb'
 require File.dirname(__FILE__) + '/utils.rb'
 require File.dirname(__FILE__) + '/form_tag_helper.rb'
 require File.dirname(__FILE__) + '/form_helper.rb'
-require File.dirname(__FILE__) + '/tags/text_field.rb'
-require File.dirname(__FILE__) + '/tags/text_area.rb'
-
 
 module Prime
   module Rails    
