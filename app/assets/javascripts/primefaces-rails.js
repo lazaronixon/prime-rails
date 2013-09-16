@@ -12,7 +12,11 @@ String.prototype.format = function (args) {
 PrimeFaces.widget.InputText = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
-        this.jq.puiinputtext();
+        if (cfg.spinner) {
+            this.jq.puispinner(cfg);
+        } else {
+            this.jq.puiinputtext(cfg);
+        }        
     }
 });
 
