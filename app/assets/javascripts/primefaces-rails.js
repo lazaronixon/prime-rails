@@ -214,3 +214,15 @@ PrimeFaces.widget.Menu = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puimenu(cfg);              
     }
 });
+
+/**
+ * PrimeFaces Menubar Widget
+ */
+PrimeFaces.widget.Menubar = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        _self = this;            
+        
+        this.jq.puimenubar(cfg);              
+    }
+});
