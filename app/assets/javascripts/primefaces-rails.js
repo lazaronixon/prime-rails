@@ -198,3 +198,19 @@ PrimeFaces.widget.Growl = PrimeFaces.widget.BaseWidget.extend({
         }        
     }
 });
+
+/**
+ * PrimeFaces Menu Widget
+ */
+PrimeFaces.widget.Menu = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        _self = this;
+        
+        if (this.cfg.trigger) {
+            this.cfg.trigger = $(PrimeFaces.escapeClientId(this.cfg.trigger))
+        }        
+        
+        this.jq.puimenu(cfg);              
+    }
+});
