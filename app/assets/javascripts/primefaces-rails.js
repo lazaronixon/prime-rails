@@ -180,3 +180,21 @@ PrimeFaces.widget.RadioButton = PrimeFaces.widget.BaseWidget.extend({
         this.jq.find(':radio').puiradiobutton(cfg);
     }
 });
+
+/**
+ * PrimeFaces Growl Widget
+ */
+PrimeFaces.widget.Growl = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        _self = this;
+        
+        this.jq.puigrowl(cfg);
+        
+        addMessage = function(msg) {_self.jq.puigrowl('show', msg)}         
+        
+        if (cfg.messages){
+            addMessage(cfg.messages);  
+        }        
+    }
+});
