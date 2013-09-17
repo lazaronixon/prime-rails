@@ -1236,16 +1236,3 @@ a {
     background: #c4c4c4 -moz-linear-gradient(top, rgba(255,255,255,0.8), rgba(255,255,255,0));
 }
 
-*html .pui-menu .pui-menu-list {
-    background: none;
-}
-
-*html .pui-menubar .pui-menu-child {
-    background: #ffffff;
-}
-
-*html .pui-menu .pui-menuitem-link {
-    border-color: #c4c4c4;
-    filter: chroma(color=#c4c4c4);
-}
-
