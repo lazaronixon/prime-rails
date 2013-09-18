@@ -244,3 +244,19 @@ PrimeFaces.widget.ContextMenu = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puicontextmenu(cfg);
     }
 });
+
+/**
+ * PrimeFaces SlideMenu Widget
+ */
+PrimeFaces.widget.SlideMenu = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        _self = this;
+
+        if (this.cfg.trigger) {
+            this.cfg.trigger = $(PrimeFaces.escapeClientId(this.cfg.trigger))
+        }
+
+        this.jq.puislidemenu(cfg);
+    }
+});
