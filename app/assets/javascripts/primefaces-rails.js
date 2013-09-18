@@ -260,3 +260,20 @@ PrimeFaces.widget.SlideMenu = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puislidemenu(cfg);
     }
 });
+
+
+/**
+ * PrimeFaces TieredMenu Widget
+ */
+PrimeFaces.widget.TieredMenu = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        _self = this;
+
+        if (this.cfg.trigger) {
+            this.cfg.trigger = $(PrimeFaces.escapeClientId(this.cfg.trigger))
+        }
+
+        this.jq.puitieredmenu(cfg);
+    }
+});
