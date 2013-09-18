@@ -14,6 +14,8 @@ PrimeFaces.widget.InputText = PrimeFaces.widget.BaseWidget.extend({
         this._super(cfg);
         if (cfg.spinner) {
             this.jq.puispinner(cfg);
+        } else if (cfg.rating){
+            this.jq.puirating(cfg);
         } else {
             this.jq.puiinputtext(cfg);
         }
