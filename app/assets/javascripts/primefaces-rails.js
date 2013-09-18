@@ -1,4 +1,4 @@
-String.prototype.format = function (args) {
+String.prototype.format = function(args) {
     var newStr = this;
     for (var key in args) {
         newStr = newStr.replace(new RegExp('{' + key + '}', "g"), args[key]);
@@ -16,7 +16,7 @@ PrimeFaces.widget.InputText = PrimeFaces.widget.BaseWidget.extend({
             this.jq.puispinner(cfg);
         } else {
             this.jq.puiinputtext(cfg);
-        }        
+        }
     }
 });
 
@@ -176,7 +176,7 @@ PrimeFaces.widget.Accordion = PrimeFaces.widget.BaseWidget.extend({
  */
 PrimeFaces.widget.RadioButton = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
-        this._super(cfg);        
+        this._super(cfg);
         this.jq.find(':radio').puiradiobutton(cfg);
     }
 });
@@ -188,14 +188,16 @@ PrimeFaces.widget.Growl = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
         _self = this;
-        
+
         this.jq.puigrowl(cfg);
-        
-        addMessage = function(msg) {_self.jq.puigrowl('show', msg)}         
-        
-        if (cfg.messages){
-            addMessage(cfg.messages);  
-        }        
+
+        addMessage = function(msg) {
+            _self.jq.puigrowl('show', msg)
+        }
+
+        if (cfg.messages) {
+            addMessage(cfg.messages);
+        }
     }
 });
 
@@ -206,12 +208,12 @@ PrimeFaces.widget.Menu = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
         _self = this;
-        
+
         if (this.cfg.trigger) {
             this.cfg.trigger = $(PrimeFaces.escapeClientId(this.cfg.trigger))
-        }        
-        
-        this.jq.puimenu(cfg);              
+        }
+
+        this.jq.puimenu(cfg);
     }
 });
 
@@ -221,8 +223,24 @@ PrimeFaces.widget.Menu = PrimeFaces.widget.BaseWidget.extend({
 PrimeFaces.widget.Menubar = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
-        _self = this;            
-        
-        this.jq.puimenubar(cfg);              
+        _self = this;
+
+        this.jq.puimenubar(cfg);
+    }
+});
+
+/**
+ * PrimeFaces ContextMenu Widget
+ */
+PrimeFaces.widget.ContextMenu = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        _self = this;
+
+        if (this.cfg.target) {
+            this.cfg.target = $(PrimeFaces.escapeClientId(this.cfg.target))
+        }
+
+        this.jq.puicontextmenu(cfg);
     }
 });
