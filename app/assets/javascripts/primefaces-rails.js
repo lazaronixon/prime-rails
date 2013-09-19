@@ -290,3 +290,13 @@ PrimeFaces.widget.Lightbox = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puilightbox(cfg);
     }
 });
+
+/**
+ * PrimeFaces Galleria Widget
+ */
+PrimeFaces.widget.Galleria = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        this.jq.puigalleria(cfg);
+    }
+});
