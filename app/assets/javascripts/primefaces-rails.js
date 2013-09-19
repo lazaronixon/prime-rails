@@ -215,7 +215,6 @@ PrimeFaces.widget.Growl = PrimeFaces.widget.BaseWidget.extend({
 PrimeFaces.widget.Menu = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
-        _self = this;
 
         if (this.cfg.trigger) {
             this.cfg.trigger = $(PrimeFaces.escapeClientId(this.cfg.trigger))
@@ -231,7 +230,6 @@ PrimeFaces.widget.Menu = PrimeFaces.widget.BaseWidget.extend({
 PrimeFaces.widget.Menubar = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
-        _self = this;
 
         this.jq.puimenubar(cfg);
     }
@@ -243,7 +241,6 @@ PrimeFaces.widget.Menubar = PrimeFaces.widget.BaseWidget.extend({
 PrimeFaces.widget.ContextMenu = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
-        _self = this;
 
         if (this.cfg.target) {
             this.cfg.target = $(PrimeFaces.escapeClientId(this.cfg.target))
@@ -258,8 +255,7 @@ PrimeFaces.widget.ContextMenu = PrimeFaces.widget.BaseWidget.extend({
  */
 PrimeFaces.widget.SlideMenu = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
-        this._super(cfg);
-        _self = this;
+        this._super(cfg);        
 
         if (this.cfg.trigger) {
             this.cfg.trigger = $(PrimeFaces.escapeClientId(this.cfg.trigger))
@@ -275,13 +271,22 @@ PrimeFaces.widget.SlideMenu = PrimeFaces.widget.BaseWidget.extend({
  */
 PrimeFaces.widget.TieredMenu = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
-        this._super(cfg);
-        _self = this;
+        this._super(cfg);        
 
         if (this.cfg.trigger) {
             this.cfg.trigger = $(PrimeFaces.escapeClientId(this.cfg.trigger))
         }
 
         this.jq.puitieredmenu(cfg);
+    }
+});
+
+/**
+ * PrimeFaces Lightbox Widget
+ */
+PrimeFaces.widget.Lightbox = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        this.jq.puilightbox(cfg);
     }
 });
