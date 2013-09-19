@@ -153,6 +153,12 @@ PrimeFaces.widget.Dropdown = PrimeFaces.widget.BaseWidget.extend({
             contentFunc = cfg.content;
             cfg.content = function(opt) { return contentFunc.format({ option: opt });};            
         }
+        
+        if (cfg.change) {
+            contentChange = cfg.change;
+            cfg.change = function(e) { eval(contentChange); };           
+        }        
+                
         if (cfg.listbox) {
             this.jq.puilistbox(cfg);
         } else {
