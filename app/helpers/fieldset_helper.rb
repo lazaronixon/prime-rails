@@ -29,7 +29,7 @@ module FieldsetHelper
         script = '$(function() {'
         script += "PrimeFaces.cw('Fieldset','#{widgetvar}',#{options_ui})"
         script += '});'         
-        javascript_tag(script, "id" => clientid+"_s")        		
+        p_javascript_tag(script, "id" => clientid+"_s")        		
 	end
 	
 end

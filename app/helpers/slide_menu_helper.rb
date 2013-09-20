@@ -28,7 +28,7 @@ module SlideMenuHelper
     script = '$(function() {'
     script += "PrimeFaces.cw('SlideMenu','#{widgetvar}',#{options_ui})"
     script += '});'         
-    javascript_tag(script, "id" => clientid+"_s")        		
+    p_javascript_tag(script, "id" => clientid+"_s")        		
 	end
 	
 end

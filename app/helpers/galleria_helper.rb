@@ -43,7 +43,7 @@ module GalleriaHelper
         script = '$(function() {'
         script += "PrimeFaces.cw('Galleria','#{widgetvar}',#{options_ui})"
         script += '});'         
-        javascript_tag(script, "id" => clientid+"_s")        		
+        p_javascript_tag(script, "id" => clientid+"_s")        		
 	end
 	
 end

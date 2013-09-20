@@ -15,7 +15,7 @@ module ActionView::Helpers::FormTagHelper
         script = '$(function() {'
         script += "PrimeFaces.cw('#{widgetclass}','#{widgetvar}',#{options_ui})"
         script += '});'         
-        output += javascript_tag(script, "id" => clientid+"_s")
+        output += p_javascript_tag(script, "id" => clientid+"_s")
                        
       end                         
       
@@ -40,7 +40,7 @@ module ActionView::Helpers::FormTagHelper
         script = '$(function() {'
         script += "PrimeFaces.cw('InputTextarea','#{widgetvar}',#{options_ui})"
         script += '});'         
-        output += javascript_tag(script, "id" => clientid+"_s")        
+        output += p_javascript_tag(script, "id" => clientid+"_s")        
       end                          
       
       def p_check_box_tag(name, value = "1", checked = false, options = {})
@@ -58,7 +58,7 @@ module ActionView::Helpers::FormTagHelper
         script = '$(function() {'
         script += "PrimeFaces.cw('CheckBox','#{widgetvar}',#{options_ui})"
         script += '});'         
-        output += javascript_tag(script, "id" => clientid+"_s")         
+        output += p_javascript_tag(script, "id" => clientid+"_s")         
         
       end   
       
@@ -90,7 +90,7 @@ module ActionView::Helpers::FormTagHelper
         script = '$(function() {'
         script += "PrimeFaces.cw('Dropdown','#{widgetvar}',#{options_ui})"
         script += '});'         
-        output += javascript_tag(script, "id" => clientid+"_s")         
+        output += p_javascript_tag(script, "id" => clientid+"_s")         
       end   
       
       def p_button_tag(content_or_options = nil, options = nil, &block)       
@@ -134,7 +134,7 @@ module ActionView::Helpers::FormTagHelper
         script = '$(function() {'
         script += "PrimeFaces.cw('Button','#{widgetvar}',#{options_ui})"
         script += '});'         
-        output += javascript_tag(script, "id" => clientid+"_s")                                             
+        output += p_javascript_tag(script, "id" => clientid+"_s")                                             
       end                   
       
 end

@@ -37,7 +37,7 @@ module AccordionHelper
     script = '$(function() {'
     script += "PrimeFaces.cw('Accordion','#{widgetvar}',#{options_ui})"
     script += '});'         
-    javascript_tag(script, "id" => clientid+"_s")        		
+    p_javascript_tag(script, "id" => clientid+"_s")        		
 	end
 	
 end

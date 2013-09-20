@@ -23,7 +23,7 @@ module ActionView
           script = '$(function() {'
           script += "PrimeFaces.cw('InputTextarea','#{widgetvar}',#{options_ui})"
           script += '});'         
-          output += javascript_tag(script, "id" => clientid+"_s")               
+          output += p_javascript_tag(script, "id" => clientid+"_s")               
           
         end
       end

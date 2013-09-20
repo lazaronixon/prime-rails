@@ -48,7 +48,7 @@ module ActionView::Helpers::UrlHelper
     script = '$(function() {'
     script += "PrimeFaces.cw('Button','#{widgetvar}',#{options_ui})"
     script += '});'         
-    output += javascript_tag(script, "id" => clientid+"_s") 
+    output += p_javascript_tag(script, "id" => clientid+"_s") 
 
     button = output    
     
