@@ -157,12 +157,16 @@ PrimeFaces.widget.Dropdown = PrimeFaces.widget.BaseWidget.extend({
         if (cfg.change) {
             contentChange = cfg.change;
             cfg.change = function(e) { eval(contentChange); };           
-        }        
-                
+        }       
+                             
         if (cfg.listbox) {
-            this.jq.puilistbox(cfg);
+            this.jq.puilistbox(cfg);                   
         } else {
             this.jq.puidropdown(cfg);
+
+            if (cfg.selectValue) {
+                this.jq.puidropdown('selectValue', cfg.selectValue)
+            }
         }
     }
 });
