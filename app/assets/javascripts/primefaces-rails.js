@@ -304,3 +304,21 @@ PrimeFaces.widget.Galleria = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puigalleria(cfg);
     }
 });
+
+/**
+ * PrimeFaces Notify Widget
+ */
+PrimeFaces.widget.Notify = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        this.jq.puinotify(cfg);                        
+    },
+    
+    show: function() { 
+        this.jq.puinotify('show',this.jq.html());   
+    },
+            
+    hide: function() { 
+        this.jq.puinotify('hide');   
+    }            
+});
