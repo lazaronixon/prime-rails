@@ -115,15 +115,16 @@ module ActionView::Helpers::FormTagHelper
         end
 
         options.reverse_merge! 'name' => 'button', 'type' => 'submit'
+        
+        clientid = sanitize_to_id(options["id"])
 
         if options['ajax']
             options['onclick'] = ''  if !options.has_key?('onclick') 
-        	options['onclick'] += "PrimeFaces.ab({source: 'this'});return false;" 
+        	options['onclick'] += "PrimeFaces.ab({source: '#{clientid}'});return false;" 
         end
             
         output = content_tag :button, content_or_options || 'Button', options, &block
-        
-        clientid = sanitize_to_id(options["id"])
+                
         widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid         
         
         options_ui = options
