@@ -331,3 +331,13 @@ PrimeFaces.widget.Notify = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puinotify('hide');   
     }            
 });
+
+/**
+ * PrimeFaces Picklist Widget
+ */
+PrimeFaces.widget.Picklist = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        this.jq.puipicklist(cfg);                        
+    }
+});
