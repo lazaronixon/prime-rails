@@ -116,7 +116,7 @@ module ActionView::Helpers::FormTagHelper
 
         options.reverse_merge! 'name' => 'button', 'type' => 'submit'
 
-        if options['ajax'] == 'true'
+        if options['ajax']
             options['onclick'] = ''  if !options.has_key?('onclick') 
         	options['onclick'] += "PrimeFaces.ab({source: 'this'});return false;" 
         end
