@@ -63,7 +63,16 @@ PrimeFaces.widget.Dialog = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
         this.jq.puidialog(cfg);
-    }
+    },
+
+    show: function() { 
+        this.jq.puidialog('show');   
+    },
+            
+    hide: function() { 
+        this.jq.puidialog('hide');   
+    }              
+    
 });
 
 /**
