@@ -341,3 +341,19 @@ PrimeFaces.widget.Picklist = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puipicklist(cfg);                        
     }
 });
+
+/**
+ * PrimeFaces Autocomplete Widget
+ */
+PrimeFaces.widget.Autocomplete = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        
+        if (cfg.content) {
+            contentFunc = cfg.content;
+            cfg.content = function(data) { return contentFunc.format({ 'option.label': data.label },{ 'option.value': data.value } );};            
+        }        
+        
+        this.jq.puiautocomplete(cfg);                        
+    }
+});
