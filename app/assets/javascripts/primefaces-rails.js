@@ -352,7 +352,23 @@ PrimeFaces.widget.Autocomplete = PrimeFaces.widget.BaseWidget.extend({
         if (cfg.content) {
             contentFunc = cfg.content;
             cfg.content = function(data) { return contentFunc.format({ 'option.label': data.label },{ 'option.value': data.value } );};            
-        }        
+        } 
+        
+        if (cfg.url) {
+            form = this.jq.parents('form:first');
+            cfg.completeSource = function(request, response) {
+                $.ajax({
+                    type: "POST",
+                    url: cfg.url,
+                    data: form.serializeArray(),
+                    dataType: "json",
+                    context: this,
+                    success: function(data) {
+                        response.call(this, data);
+                    }
+                });
+            };
+        }
         
         this.jq.puiautocomplete(cfg);                        
     }
