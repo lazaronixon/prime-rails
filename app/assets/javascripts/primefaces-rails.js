@@ -373,3 +373,13 @@ PrimeFaces.widget.Autocomplete = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puiautocomplete(cfg);                        
     }
 });
+
+/**
+ * PrimeFaces SplitButton Widget
+ */
+PrimeFaces.widget.SplitButton = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        this.jq.puisplitbutton(cfg);                        
+    }
+});
