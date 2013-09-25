@@ -10,7 +10,7 @@ module PaginatorHelper
   
   def paginator_decode(id,options={})    
     clientid = sanitize_to_id(id)	
-    param_page = params[clientid+'_page'].nil? ? 0 : (params[clientid+'_page'].to_i) -1   
+    param_page = params[clientid+'_page'].nil? ? 0 : (params[clientid+'_page'].to_i) -1      
     options = options.merge(:page => param_page)
     options
   end
@@ -20,7 +20,7 @@ module PaginatorHelper
 		options = options.stringify_keys   
     options = options.merge(:id => clientid)                     
     output = content_tag('div',options) do
-      text_field_tag(clientid+'_page',nil,type: 'hidden')
+      text_field_tag(clientid+'_page',options['page'],type: 'hidden')
     end
     output.html_safe			
 	end
