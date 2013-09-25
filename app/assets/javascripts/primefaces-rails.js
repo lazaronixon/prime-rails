@@ -383,3 +383,26 @@ PrimeFaces.widget.SplitButton = PrimeFaces.widget.BaseWidget.extend({
         this.jq.puisplitbutton(cfg);                        
     }
 });
+
+
+/**
+ * PrimeFaces Paginator Widget
+ */
+PrimeFaces.widget.Paginator = PrimeFaces.widget.BaseWidget.extend({
+    init: function(cfg) {
+        this._super(cfg);
+        this.inputPage = $(this.jqId + '_page');  
+        this.form = this.jq.parents('form:first');                 
+        _self = this;              
+        
+        cfg.paginate = function(event,state){
+            _self.inputPage.val(state.page +1);
+            _self.form.submit();
+        };                    
+        
+        this.jq.puipaginator(cfg);
+                                 
+        
+
+    }
+});
