@@ -208,7 +208,7 @@ PrimeFaces.widget.RadioButton = PrimeFaces.widget.BaseWidget.extend({
 PrimeFaces.widget.Growl = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
-        _self = this;
+        var _self = this;
 
         this.jq.puigrowl(cfg);
 
@@ -393,7 +393,7 @@ PrimeFaces.widget.Paginator = PrimeFaces.widget.BaseWidget.extend({
         this._super(cfg);
         this.inputPage = $(this.jqId + '_page');  
         this.form = this.jq.parents('form:first');                 
-        _self = this;              
+        var _self = this;              
         
         cfg.paginate = function(event,state){
             _self.inputPage.val(state.page +1);
@@ -411,18 +411,55 @@ PrimeFaces.widget.Paginator = PrimeFaces.widget.BaseWidget.extend({
 PrimeFaces.widget.DataTable = PrimeFaces.widget.BaseWidget.extend({
     init: function(cfg) {
         this._super(cfg);
-        this.inputSelection = $(this.jqId + '_selection');               
-        _self = this;                                                      
+        this.selectionHolder = $(this.jqId + '_selection'); 
+        this.selection = []
+        var _self = this;                                                      
                     
-        cfg.rowSelect = function(event, data) {
-            _self.inputSelection.val(data[cfg.rowkey]);            
+        cfg.rowSelect = function(event, data) { 
+            _self.selection = [];
+            _self.addSelection(data[cfg.rowkey]);
+            _self.writeSelections();
         },        
                 
         cfg.rowUnselect = function(event, data) {
-            _self.inputSelection.val(null);
+            _self.removeSelection(data[cfg.rowkey]);
+            _self.writeSelections();
         },                
         
-        this.jq.puidatatable(cfg);   
+        this.jq.puidatatable(cfg); 
+
+        
           
-    }
+    },
+            
+    /**
+     * Writes selected row ids to state holder
+     */
+    writeSelections: function() {
+        $(this.selectionHolder).val(this.selection.join(','));
+    },      
+            
+    /**
+     * Remove given rowIndex from selection
+     */
+    removeSelection: function(rowIndex) {        
+        this.selection = $.grep(this.selection, function(value) {
+            return value != rowIndex;
+        });
+    },
+    
+    /**
+     * Adds given rowIndex to selection if it doesn't exist already
+     */
+    addSelection: function(rowIndex) {        
+            this.selection.push(rowIndex);        
+    },
+    
+    isSingleSelection: function() {
+        return this.cfg.selectionMode == 'single';
+    },
+    
+    isMultipleSelection: function() {
+        return this.cfg.selectionMode == 'multiple';
+    }    
 });
