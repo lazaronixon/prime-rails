@@ -18,7 +18,7 @@ Then ``bundle install`` to install the gems.
 Then add assests to your layout:
 
 ```
-<%= stylesheet_link_tag "aristo/theme" %> #check examples forappropriate themes.
+<%= stylesheet_link_tag "aristo/theme" %> #check examples for appropriate themes.
 <%= stylesheet_link_tag "prime-ui" %>
 
 <%= javascript_include_tag "prime-ui" %>
