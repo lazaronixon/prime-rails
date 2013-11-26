@@ -1,5 +1,4 @@
-module ActionView::Helpers::UrlHelper  
-  
+module ActionView::Helpers::UrlHelper
   def p_button_to(name = nil, options = nil, html_options = nil, &block)
     html_options, options = options, name if block_given?
     options      ||= {}
@@ -35,30 +34,26 @@ module ActionView::Helpers::UrlHelper
     end
 
     output = button
-    
-    options = html_options.stringify_keys
-        
-    clientid = sanitize_to_id(options["id"])
-    widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid         
-        
-    options_ui = options
-    options_ui = options_ui.merge(:id => clientid )                         
-    options_ui = options_ui.to_json        
-        
-    script = '$(function() {'
-    script += "PrimeFaces.cw('Button','#{widgetvar}',#{options_ui})"
-    script += '});'         
-    output += p_javascript_tag(script, "id" => clientid+"_s") 
 
-    button = output    
-    
-    
-    
+    options = html_options.stringify_keys
+
+    clientid = sanitize_to_id(options["id"])
+    widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid
+
+    options_ui = options
+    options_ui = options_ui.merge(:id => clientid )
+    options_ui = options_ui.to_json
+
+    script = '$(function() {'
+      script += "PrimeFaces.cw('Button','#{widgetvar}',#{options_ui})"
+      script += '});'
+    output += p_javascript_tag(script, "id" => clientid+"_s")
+
+    button = output
+
+
+
     inner_tags = method_tag.safe_concat(button).safe_concat(request_token_tag)
     content_tag('form', content_tag('div', inner_tags), form_options)
-    
-         
-        
-  end  
-
+  end
 end

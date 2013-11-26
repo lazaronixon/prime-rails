@@ -1,7 +1,7 @@
-module ActionView::Helpers::JavaScriptHelper  
+module ActionView::Helpers::JavaScriptHelper
   def p_javascript_tag(content_or_options_with_block = nil, html_options = {}, &block)
     content =
-      if block_given?
+    if block_given?
       html_options = content_or_options_with_block if content_or_options_with_block.is_a?(Hash)
       capture(&block)
     else

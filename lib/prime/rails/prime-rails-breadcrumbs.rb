@@ -13,7 +13,6 @@ module Prime
             controller.send :add_breadcrumb, name, url
           end
         end
-               
       end
 
       protected
@@ -23,7 +22,7 @@ module Prime
         name = translate_breadcrumb(name, self.class.name) if name.is_a?(Symbol)
         url = eval(url.to_s) if url =~ /_path|_url|@/
         @breadcrumbs << {:name => name, :url => url, :options => options}
-      end         
+      end
 
       def translate_breadcrumb(name, class_name)
         scope = [:breadcrumbs]
