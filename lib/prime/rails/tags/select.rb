@@ -4,7 +4,7 @@ module ActionView
       class Select < Base # :nodoc:
         include Helpers::JavaScriptHelper
 
-        def p_render          
+        def p_render
           option_tags_options = {
             :selected => @options.fetch(:selected) { value(@object) },
             :disabled => @options[:disabled]
@@ -16,9 +16,9 @@ module ActionView
             options_for_select(@choices, option_tags_options)
           end
 
-          p_select_content_tag(option_tags, @options, @html_options)                  
+          p_select_content_tag(option_tags, @options, @html_options)
         end
-        
+
         def p_select_content_tag(option_tags, options, html_options)
           html_options = html_options.stringify_keys
           add_default_name_and_id(html_options)
@@ -32,17 +32,17 @@ module ActionView
           end
 
           clientid = sanitize_to_id(html_options["id"])
-          widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid         
-        
+          widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid
+
           options_ui = options
-          options_ui = options_ui.merge(:id => clientid )                         
-          options_ui = options_ui.to_json        
-        
+          options_ui = options_ui.merge(:id => clientid )
+          options_ui = options_ui.to_json
+
           script = '$(function() {'
-          script += "PrimeFaces.cw('Dropdown','#{widgetvar}',#{options_ui})"
-          script += '});'         
-          output += p_javascript_tag(script, "id" => clientid+"_s")                
-        end        
+            script += "PrimeFaces.cw('Dropdown','#{widgetvar}',#{options_ui})"
+          script += '});'
+          output += p_javascript_tag(script, "id" => clientid+"_s")
+        end
 
       end
     end

@@ -2,7 +2,7 @@ module ActionView
   module Helpers
     module Tags # :nodoc:
       class CheckBox < Base #:nodoc:
-        include Helpers::JavaScriptHelper  
+        include Helpers::JavaScriptHelper
         def p_render
           options = @options.stringify_keys
           options["type"]     = "checkbox"
@@ -25,20 +25,19 @@ module ActionView
           else
             output = checkbox
           end
-          
-        clientid = sanitize_to_id(options["id"])
-        widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid         
-        
-        options_ui = options
-        options_ui = options_ui.merge(:id => clientid )                         
-        options_ui = options_ui.to_json        
-        
-        script = '$(function() {'
-        script += "PrimeFaces.cw('CheckBox','#{widgetvar}',#{options_ui})"
-        script += '});'         
-        output += p_javascript_tag(script, "id" => clientid+"_s")           
-          
-        end                 
+
+          clientid = sanitize_to_id(options["id"])
+          widgetvar = options.has_key?("widgetVar") ? options["widgetVar"] : "widget_"+clientid
+
+          options_ui = options
+          options_ui = options_ui.merge(:id => clientid )
+          options_ui = options_ui.to_json
+
+          script = '$(function() {'
+            script += "PrimeFaces.cw('CheckBox','#{widgetvar}',#{options_ui})"
+          script += '});'
+          output += p_javascript_tag(script, "id" => clientid+"_s")
+        end
       end
     end
   end
