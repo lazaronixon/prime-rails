@@ -18,7 +18,7 @@ Then ``bundle install`` to install the gems.
 Then add assests to your layout:
 
 ```
-<%= stylesheet_link_tag "aristo/theme" %>
+<%= stylesheet_link_tag "aristo/theme" %> #check examples for appropriate themes.
 <%= stylesheet_link_tag "prime-ui" %>
 
 <%= javascript_include_tag "prime-ui" %>
@@ -29,7 +29,8 @@ Checkout [PrimeRails](http://primerails.herokuapp.com).
 
 TODO
 ----
-TESTS
+TESTS (Urgent)
+Separate gem for Themes (Support two by default, perhaps bootstrap and foundation)
 
 Contributing
 -------------
