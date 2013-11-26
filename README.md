@@ -29,9 +29,8 @@ Checkout [PrimeRails](http://primerails.herokuapp.com).
 
 TODO
 ----
-TESTS (Urgent)
-
-Separate gem for Themes (Support two by default, perhaps bootstrap and)
+* TESTS (Urgent)
+* Separate gem for Themes (Support two by default, perhaps bootstrap and foundation)
 
 Contributing
 -------------
