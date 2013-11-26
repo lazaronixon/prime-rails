@@ -7,7 +7,6 @@ module ActionView::Helpers::JavaScriptHelper
     else
       content_or_options_with_block
     end
-
     content_tag(:script, content.html_safe, html_options)
   end
 end

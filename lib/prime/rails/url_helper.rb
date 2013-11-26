@@ -46,12 +46,10 @@ module ActionView::Helpers::UrlHelper
 
     script = '$(function() {'
       script += "PrimeFaces.cw('Button','#{widgetvar}',#{options_ui})"
-      script += '});'
+    script += '});'
     output += p_javascript_tag(script, "id" => clientid+"_s")
 
     button = output
-
-
 
     inner_tags = method_tag.safe_concat(button).safe_concat(request_token_tag)
     content_tag('form', content_tag('div', inner_tags), form_options)

@@ -16,7 +16,7 @@ module ActionView
           clientid = sanitize_to_id(options["id"])
           widgetvar = options["var"] ? options["var"] : "widget_"+clientid
           script = '$(function() {'
-          script += "PrimeFaces.cw('InputText','#{widgetvar}',{id: '#{clientid}' })"
+            script += "PrimeFaces.cw('InputText','#{widgetvar}',{id: '#{clientid}' })"
           script += '});'
           output += p_javascript_tag(script, "id" => clientid+"_s")
         end

@@ -22,7 +22,7 @@ module ActionView
           options_ui = options_ui.to_json
 
           script = '$(function() {'
-          script += "PrimeFaces.cw('InputTextarea','#{widgetvar}',#{options_ui})"
+            script += "PrimeFaces.cw('InputTextarea','#{widgetvar}',#{options_ui})"
           script += '});'
           output += p_javascript_tag(script, "id" => clientid+"_s")
         end

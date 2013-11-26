@@ -29,7 +29,6 @@ module ActionView::Helpers
   end
 
   class FormBuilder
-
     class_attribute :p_field_helpers
     self.p_field_helpers = [:p_text_field,:p_text_area]
 

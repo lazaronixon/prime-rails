@@ -37,6 +37,7 @@ module Prime
         s = render :partial => 'prime-rails/breadcrumbs', :locals => {:divider => divider}
         s.first
       end
+
     end
   end
 end

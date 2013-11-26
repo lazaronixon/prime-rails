@@ -18,7 +18,6 @@ module Prime
           updateresp = update['resp']
           output += %{<update id="#{updateid}"><![CDATA[#{updateresp}]]></update>}
         end
-
         output += "</changes>"
         output += "</partial-response>"
       end

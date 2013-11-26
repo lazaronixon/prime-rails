@@ -13,7 +13,7 @@ module ActionView::Helpers::FormTagHelper
 
     script = '$(function() {'
       script += "PrimeFaces.cw('#{widgetclass}','#{widgetvar}',#{options_ui})"
-      script += '});'
+    script += '});'
     output += p_javascript_tag(script, "id" => clientid+"_s")
   end
 
@@ -36,7 +36,7 @@ module ActionView::Helpers::FormTagHelper
     options_ui = options_ui.to_json
 
     script = '$(function() {'
-    script += "PrimeFaces.cw('InputTextarea','#{widgetvar}',#{options_ui})"
+      script += "PrimeFaces.cw('InputTextarea','#{widgetvar}',#{options_ui})"
     script += '});'
     output += p_javascript_tag(script, "id" => clientid+"_s")
   end
@@ -129,7 +129,7 @@ module ActionView::Helpers::FormTagHelper
     options_ui = options_ui.to_json
 
     script = '$(function() {'
-    script += "PrimeFaces.cw('Button','#{widgetvar}',#{options_ui})"
+      script += "PrimeFaces.cw('Button','#{widgetvar}',#{options_ui})"
     script += '});'
     output += p_javascript_tag(script, "id" => clientid+"_s")
   end
