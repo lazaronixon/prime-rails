@@ -8,25 +8,28 @@ Installation
 ------------
 Add these to your Gemfile:
 
+```
 gem 'jquery-rails' #it's probably in your Gemfile already.
 gem 'prime-rails'
+```
 
 Then ``bundle install`` to install the gems.
 
 Then add assests to your layout:
 
+```
 <%= stylesheet_link_tag "aristo/theme" %>
 <%= stylesheet_link_tag "prime-ui" %>
 
 <%= javascript_include_tag "prime-ui" %>
-
+```
 Examples
 --------
-Checkout PrimeRails at [here](http://primerails.herokuapp.com).
+Checkout [PrimeRails](http://primerails.herokuapp.com).
 
 TODO
 ----
-Tests
+TESTS
 
 Contributing
 -------------
